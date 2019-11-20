@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 
-import {Slider} from '@react-native-community/slider';
+
 
 
 import {
@@ -13,33 +13,49 @@ import {
   View,
   Button,
   Alert,
+  Slider,
 } from 'react-native';
 
 
 export default class LawEnforcementLandingPage extends Component {
 
-  constructor() {
-    super();
-      this.state = {
-      value: 20
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: 50,
     };
   }
 
-  render() {
-    return (
+  changeSlider(value) {
+    this.setState(() => {
+      return {
+        value: parseFloat(value),
+      };
+    });
+  }
 
-      <View>
+  render() {
+    const {value} = this.state;
+
+    return (
+      <View style={styles.container}>
         <Text> Noah Smells </Text>
 
-        <Slider
-          style={{width: 200, height: 40}}
-          minimumValue={0}
-          maximumValue={1}
-          minimumTrackTintColor="#FFFFFF"
-          maximumTrackTintColor="#000000"
-        />
+        <View style={styles.bottomView}>
+          <Slider
+          style={styles.sliderWindow}
+            minimumValue={0}
+            maximumValue={100}
+            minimumTrackTintColor="green"
+            maximumTrackTintColor="red"
+            onValueChange={this.changeSlider.bind(this)}
+            value={value}
+            step={0.1}
 
-        <Text>Value: {this.state.value}</Text>
+          />
+
+          <Text>Confidence: {this.state.value}</Text>
+        </View>
       </View>
     );
   }
@@ -52,7 +68,21 @@ LawEnforcementLandingPage.navigationOptions = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 15,
-    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
+  bottomView: {
+    width: '100%',
+    height: 50,
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute', //Here is the trick
+    bottom: 0, //Here is the trick
+  },
+
+  sliderWindow: {
+    width: '80%',
+    backgroundColor: 'white',
+  }
 });

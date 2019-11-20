@@ -8,6 +8,7 @@ import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import LawEnforcementLandingPage from '../screens/LawEnforcementLandingPage';
 import CivilianLandingPage from '../screens/CivilianLandingPage';
+import AddPhoneNumber from '../screens/AddPhoneNumber';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -19,6 +20,7 @@ const HomeStack = createStackNavigator(
     Home: HomeScreen,
     LawEnforcementLandingPage: LawEnforcementLandingPage,
     CivilianLandingPage: CivilianLandingPage,
+    AddPhoneNumber: AddPhoneNumber,
   },
   config
 );

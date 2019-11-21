@@ -18,7 +18,7 @@ export default class AddPhoneNumber extends Component {
     constructor(props) {
     super(props);
     this.state = {phoneNumber: ''};
-}
+    }
   render() {
     return (
     <View style={styles.container}>
@@ -92,6 +92,12 @@ const styles = StyleSheet.create({
     height: 200,
     resizeMode: 'contain',
     alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    marginLeft: 5,
+    marginRight: 5,
   },
   getStartedContainer: {
     alignItems: 'center',
@@ -169,5 +175,12 @@ const styles = StyleSheet.create({
     width: '45%',
     height: 40,
     paddingHorizontal: 2,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 1,
+    marginLeft: 5,
+    marginRight: 5,
   }
 });

@@ -80,6 +80,12 @@ const styles = StyleSheet.create({
     height: 200,
     resizeMode: 'contain',
     alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    marginLeft: 5,
+    marginRight: 5,
   },
   getStartedContainer: {
     alignItems: 'center',
@@ -146,11 +152,20 @@ const styles = StyleSheet.create({
   flexDirection: 'row',
   justifyContent: 'space-between',
   paddingHorizontal: 40,
+  marginTop: 40,
+ 
   },
   button: {
     backgroundColor: 'orange',
     width: '45%',
     height: 40,
     paddingHorizontal: 2,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 1,
+    marginLeft: 5,
+    marginRight: 5,
   }
 });

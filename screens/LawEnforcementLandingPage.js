@@ -78,9 +78,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute', //Here is the trick
-    bottom: 0, //Here is the trick
+    bottom: 40, //Here is the trick
   },
-
   sliderWindow: {
     width: '80%',
     backgroundColor: 'white',

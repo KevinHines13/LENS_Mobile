@@ -20,13 +20,14 @@ export default class LawEnforcementLandingPage extends Component {
     super(props);
     this.state = {
       value: 50,
+      isCrime: 1,
     };
   }
 
   changeSlider(value) {
     this.setState(() => {
       return {
-        value: parseFloat(value),
+        value: parseInt(value),
       };
     });
   }
@@ -36,47 +37,44 @@ export default class LawEnforcementLandingPage extends Component {
 
     return (
       <View style={styles.container}>
-        <View style={styles.button_container}>
-          <View style={styles.button}>
-            <Button
-              title="Add Phone #"
-               onPress={() => this.props.navigation.navigate("AddPhoneNumber")}
-               />
-          </View>
-        </View>
+        
 
         <View style={styles.button_container}>
-          <View style={(this.state.isCrime == 0) ? styles.green_Button : styles.red_Button}>
-            <Button
-              title={(this.state.isCrime == 0) ? "Clear" : "Location"}
-               />
-          </View>
+          <TouchableOpacity
+          style={(this.state.isCrime == 0) ? styles.green_Button : styles.red_Button}
+          >
+          <Text style={{fontSize: 22,fontWeight: 'bold'}}>{(this.state.isCrime == 0) ? "Clear" : "Location"}</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+          style={styles.button}
+          onPress={() => this.props.navigation.navigate("CrimeHistory")}
+          >
+          <Text style={{fontSize: 16}}> Crime History </Text>
+          </TouchableOpacity>
         </View>
 
-        <View style={styles.button_container}>
-          <View style={styles.button}>
-            <Button
-              title="Crime History"
-               onPress={() => this.props.navigation.navigate("CrimeHistory")}
-               />
-          </View>
-        </View>
-
-
-        <View style={styles.bottomView}>
+        <View style={styles.sliderView}>
           <Slider
           style={styles.sliderWindow}
             minimumValue={0}
             maximumValue={100}
-            minimumTrackTintColor="green"
-            maximumTrackTintColor="red"
+            minimumTrackTintColor="#39b533"
+            maximumTrackTintColor="#f04646"
             onValueChange={this.changeSlider.bind(this)}
             value={value}
             step={0.1}
 
           />
-
-          <Text>Confidence: {this.state.value}</Text>
+          <TouchableOpacity
+          style={styles.set_button}
+          onPress={() => this.props.navigation.navigate("Blah")}
+          >
+          <Text style={{fontSize: 16}}> Set </Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.bottomView}>
+          <Text>Confidence: {this.state.value}               </Text>
         </View>
       </View>
     );
@@ -92,27 +90,44 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'powderblue',
+    backgroundColor: '#81c6d6',
+  },
+  sliderView: {
+    width: '100%',
+    height: 40,
+    backgroundColor: '#81c6d6',
+    alignItems: 'center',
+    position: 'absolute', //Here is the trick
+    bottom: 50, //Here is the trick
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
   bottomView: {
     width: '100%',
-    height: 50,
-    backgroundColor: 'powderblue',
-    justifyContent: 'center',
+    height: 13,
+    backgroundColor: '#81c6d6',
     alignItems: 'center',
     position: 'absolute', //Here is the trick
-    bottom: 40, //Here is the trick
+    bottom: 28, //Here is the trick
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
   sliderWindow: {
-    width: '80%',
-    backgroundColor: 'powderblue',
+    width: '75%',
+    backgroundColor: '#81c6d6',
+  },
+  button_container: {
+    alignItems: 'center',
+    marginHorizontal: 10,
   },
   button: {
-    backgroundColor: 'orange',
+    backgroundColor: '#f0b630',
     width: '45%',
     height: 40,
+    padding: 11,
     paddingHorizontal: 2,
-    marginTop: 15,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
@@ -120,33 +135,39 @@ const styles = StyleSheet.create({
     elevation: 1,
     marginLeft: 5,
     marginRight: 5,
+    marginTop: 15,
+    alignItems: 'center',
   },
-  green_Button: {
-    backgroundColor: 'green',
-    width: '65%',
-    height: 120,
+  set_button: {
+    backgroundColor: '#f0b630',
+    width: '12%',
+    height: 40,
+    padding: 11,
     paddingHorizontal: 2,
-    marginTop: 15,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 2,
     elevation: 1,
-    marginLeft: 5,
     marginRight: 5,
+    marginLeft: 15,
+    marginTop: 10,
+    alignItems: 'center',
   },
   red_Button: {
-    backgroundColor: 'red',
-    width: '65%',
-    height: 120,
-    paddingHorizontal: 2,
+    backgroundColor: '#f04646',
+    height: 200,
+    paddingHorizontal: 90,
+    paddingTop: 90,
     marginTop: 15,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 1,
-    marginLeft: 5,
-    marginRight: 5,
+    alignItems: 'center',
+  },
+  green_Button: {
+    backgroundColor: '#39b533',
+    height: 200,
+    paddingHorizontal: 100,
+    paddingTop: 90,
+    marginTop: 15,
+    alignItems: 'center',
   }
 });

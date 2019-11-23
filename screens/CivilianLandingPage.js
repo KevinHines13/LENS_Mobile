@@ -16,8 +16,8 @@ import {
 export default class CivilianLandingPage extends Component {
   constructor(props) {
     super(props);
-    this.state = {isCrime: 1,} 
-    
+    this.state = {isCrime: 1,}
+
   }
   render() {
     return (
@@ -34,8 +34,6 @@ export default class CivilianLandingPage extends Component {
                onPress={() => this.props.navigation.navigate("AddPhoneNumber")}
                />
           </View>
-
-          
         </View>
 
         <View style={styles.button_container}>
@@ -44,8 +42,6 @@ export default class CivilianLandingPage extends Component {
               title={(this.state.isCrime == 0) ? "Clear" : "Location"}
                />
           </View>
-
-          
         </View>
 
       </ScrollView>
@@ -99,26 +95,6 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     textAlign: 'center',
   },
-  tabBarInfoContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    ...Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset: { width: 0, height: -3 },
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 20,
-      },
-    }),
-    alignItems: 'center',
-    backgroundColor: '#fbfbfb',
-    paddingVertical: 20,
-  },
   tabBarInfoText: {
     fontSize: 17,
     color: 'rgba(96,100,109, 1)',
@@ -126,17 +102,6 @@ const styles = StyleSheet.create({
   },
   navigationFilename: {
     marginTop: 5,
-  },
-  helpContainer: {
-    marginTop: 15,
-    alignItems: 'center',
-  },
-  helpLink: {
-    paddingVertical: 15,
-  },
-  helpLinkText: {
-    fontSize: 14,
-    color: '#2e78b7',
   },
   button_container: {
     alignItems: 'center',

@@ -2,9 +2,6 @@ import React, {Component} from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 
-
-
-
 import {
   Image,
   Platform,
@@ -60,7 +57,7 @@ export default class LawEnforcementLandingPage extends Component {
           <View style={styles.button}>
             <Button
               title="Crime History"
-               onPress={() => this.props.navigation.navigate("AddPhoneNumber")}
+               onPress={() => this.props.navigation.navigate("CrimeHistory")}
                />
           </View>
         </View>

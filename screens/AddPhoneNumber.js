@@ -53,12 +53,12 @@ export default class AddPhoneNumber extends Component {
       </View>
 
       <View style={styles.button_container}>
-          <View style={styles.button}>
-            <Button
-              title="Submit"
-               onPress={() => this.props.navigation.navigate("CivilianLandingPage")}
-               />
-          </View>
+          <TouchableOpacity
+          style={styles.button}
+          onPress={() => this.props.navigation.navigate("CivilianLandingPage")}
+          >
+          <Text style={{fontSize: 16}}> Submit </Text>
+          </TouchableOpacity>
 
           
       </View>
@@ -77,7 +77,7 @@ AddPhoneNumber.navigationOptions = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'powderblue',
+    backgroundColor: '#81c6d6',
   },
   contentContainer: {
     paddingTop: 30,
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 4,
   },
   getStartedText: {
-    fontSize: 17,
+    fontSize: 18,
     color: 'rgba(96,100,109, 1)',
     lineHeight: 24,
     textAlign: 'center',
@@ -171,9 +171,10 @@ const styles = StyleSheet.create({
     marginHorizontal: 50,
   },
   button: {
-    backgroundColor: 'orange',
+    backgroundColor: '#f0b630',
     width: '45%',
     height: 40,
+    padding: 11,
     paddingHorizontal: 2,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
@@ -182,5 +183,6 @@ const styles = StyleSheet.create({
     elevation: 1,
     marginLeft: 5,
     marginRight: 5,
+    alignItems: 'center',
   }
 });

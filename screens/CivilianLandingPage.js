@@ -28,20 +28,20 @@ export default class CivilianLandingPage extends Component {
         contentContainerStyle={styles.contentContainer}>
 
         <View style={styles.button_container}>
-          <View style={styles.button}>
-            <Button
-              title="Add Phone #"
-               onPress={() => this.props.navigation.navigate("AddPhoneNumber")}
-               />
-          </View>
+          <TouchableOpacity
+          style={styles.button}
+          onPress={() => this.props.navigation.navigate("AddPhoneNumber")}
+          >
+          <Text style={{fontSize: 16}}> Add Phone # </Text>
+          </TouchableOpacity>
         </View>
 
         <View style={styles.button_container}>
-          <View style={(this.state.isCrime == 0) ? styles.green_Button : styles.red_Button}>
-            <Button
-              title={(this.state.isCrime == 0) ? "Clear" : "Location"}
-               />
-          </View>
+          <TouchableOpacity
+          style={(this.state.isCrime == 0) ? styles.green_Button : styles.red_Button}
+          >
+          <Text style={{fontSize: 22,fontWeight: 'bold'}}>{(this.state.isCrime == 0) ? "Clear" : "Location"}</Text>
+          </TouchableOpacity>
         </View>
 
       </ScrollView>
@@ -58,10 +58,10 @@ CivilianLandingPage.navigationOptions = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'powderblue',
+    backgroundColor: '#81c6d6',
   },
   contentContainer: {
-    paddingTop: 30,
+    paddingTop: 150,
   },
   welcomeContainer: {
     alignItems: 'center',
@@ -108,11 +108,11 @@ const styles = StyleSheet.create({
     marginHorizontal: 50,
   },
   button: {
-    backgroundColor: 'orange',
+    backgroundColor: '#f0b630',
     width: '45%',
     height: 40,
+    padding: 11,
     paddingHorizontal: 2,
-    marginTop: 15,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
@@ -120,33 +120,22 @@ const styles = StyleSheet.create({
     elevation: 1,
     marginLeft: 5,
     marginRight: 5,
-  },
-  green_Button: {
-    backgroundColor: 'green',
-    width: '65%',
-    height: 120,
-    paddingHorizontal: 2,
-    marginTop: 15,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 1,
-    marginLeft: 5,
-    marginRight: 5,
+    alignItems: 'center',
   },
   red_Button: {
-    backgroundColor: 'red',
-    width: '65%',
-    height: 120,
-    paddingHorizontal: 2,
+    backgroundColor: '#f04646',
+    height: 200,
+    paddingHorizontal: 90,
+    paddingTop: 90,
     marginTop: 15,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 1,
-    marginLeft: 5,
-    marginRight: 5,
+    alignItems: 'center',
+  },
+  green_Button: {
+    backgroundColor: '#39b533',
+    height: 200,
+    paddingHorizontal: 100,
+    paddingTop: 90,
+    marginTop: 15,
+    alignItems: 'center',
   }
 });

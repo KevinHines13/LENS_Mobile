@@ -12,12 +12,15 @@ import {
   Alert,
 } from 'react-native';
 
+
 import { MonoText } from '../components/StyledText';
 
 export default class HomeScreen extends Component{
+
   static navigationOptions = {
     title: 'HomeScreen',
   };
+
 render() {
   return (
     <View style={styles.container}>
@@ -40,7 +43,6 @@ render() {
             Low-Light Environment Neural Surveillance
           </Text>
         </View>
-
         <View style={styles.button_container}>
           <TouchableOpacity
           style={styles.button}

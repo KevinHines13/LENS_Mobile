@@ -7,12 +7,12 @@ import { Ionicons } from '@expo/vector-icons';
 
 import AppNavigator from './navigation/AppNavigator';
 
-import Amplify, { API } from 'aws-amplify';
-import awsmobile from './aws-exports';
+//import Amplify, { API } from 'aws-amplify';
+//import awsmobile from './aws-exports';
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
-  Amplify.configure(awsmobile);
+  //Amplify.configure(awsmobile);
 
   if (!isLoadingComplete && !props.skipLoadingScreen) {
     return (

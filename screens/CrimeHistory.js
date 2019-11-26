@@ -63,6 +63,7 @@ export default class CrimeHistory extends Component {
       //console.log(this.state.data.Items);
       {this.state.data && this.state.data.Items.map((instance, i) => {
         return(
+
           <TouchableOpacity
             onPress={() => this.props.navigation.navigate("LawEnforcementLandingPage")}
           >
@@ -76,23 +77,27 @@ export default class CrimeHistory extends Component {
 
   render() {
     return (
+    <ScrollView style={{backgroundColor: '#81c6d6'}}>
       <View style={styles.container}>
-        <Text> Please select a crime below </Text>
-        <View>
+        <Text style={{fontSize: 24}}> Please select a crime below: </Text>
+      <View>
         {this.state.data && this.state.data.Items.map((instance, i) => {
           return(
+           
             <TouchableOpacity
             style={styles.button}
               onPress={() => this.props.navigation.navigate("LawEnforcementLandingPage")}
             >
-               <Text> {String(new Date(instance.timestamp*1000))} </Text>
+               <Text style={{fontSize: 16}}> {String(new Date(instance.timestamp*1000))} </Text>
             </TouchableOpacity>
+      
+            
           );
         })
       }
         </View>
       </View>
-
+</ScrollView>
     );
   }
 }
@@ -121,6 +126,16 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: '#f0b630',
     justifyContent:'space-between',
-    margin: 10
+    margin: 5,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 1,
+    marginLeft: 5,
+    marginRight: 5,
+    height: 40,
+    padding: 11,
+    paddingLeft: 5,
   }
 });

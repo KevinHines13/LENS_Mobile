@@ -32,12 +32,25 @@ export default class LawEnforcementLandingPage extends Component {
     });
   }
 
+  sendAlert(){
+    console.log("called it")
+    fetch(("https://hs57b6bjq0.execute-api.us-east-1.amazonaws.com/default/crimeAlert"), {
+       method: 'GET'
+    })
+    .then((response) => response.json())
+    .then((responseJson) => {
+      console.log(responseJson)
+    })
+    .catch((error) => {
+       console.error(error);
+    });
+  }
   render() {
     const {value} = this.state;
 
     return (
       <View style={styles.container}>
-        
+
 
         <View style={styles.button_container}>
           <TouchableOpacity
@@ -53,6 +66,13 @@ export default class LawEnforcementLandingPage extends Component {
           <Text style={{fontSize: 16}}> Crime History </Text>
           </TouchableOpacity>
         </View>
+
+        <TouchableOpacity
+        style={styles.alert_button}
+        onPress={() => this.sendAlert()}
+        >
+        <Text style={{fontSize: 16}}> SEND ALERT TEXT </Text>
+        </TouchableOpacity>
 
         <View style={styles.sliderView}>
           <Slider
@@ -72,6 +92,7 @@ export default class LawEnforcementLandingPage extends Component {
           >
           <Text style={{fontSize: 16}}> Set </Text>
           </TouchableOpacity>
+
         </View>
         <View style={styles.bottomView}>
           <Text>Confidence: {this.state.value}               </Text>
@@ -152,6 +173,22 @@ const styles = StyleSheet.create({
     marginRight: 5,
     marginLeft: 15,
     marginTop: 10,
+    alignItems: 'center',
+  },
+  alert_button: {
+    backgroundColor: '#f0b630',
+    width: '50%',
+    height: 40,
+    padding: 11,
+    paddingHorizontal: 2,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 1,
+    marginRight: 5,
+    marginLeft: 15,
+    marginTop: 5,
     alignItems: 'center',
   },
   red_Button: {

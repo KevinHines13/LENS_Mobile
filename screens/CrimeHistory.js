@@ -30,11 +30,9 @@ export default class CrimeHistory extends Component {
     })
     .then((response) => response.json())
     .then((responseJson) => {
-       console.log(responseJson);
        this.setState({
           data: responseJson
        })
-       console.log(this.state.data.Items)
     })
     .catch((error) => {
        console.error(error);
@@ -58,6 +56,8 @@ export default class CrimeHistory extends Component {
   //       console.error(error);
   //    });
   // }
+
+
 
   renderCrimes(){
       //console.log(this.state.data.Items);
@@ -83,15 +83,17 @@ export default class CrimeHistory extends Component {
       <View>
         {this.state.data && this.state.data.Items.map((instance, i) => {
           return(
-           
+
             <TouchableOpacity
             style={styles.button}
-              onPress={() => this.props.navigation.navigate("LawEnforcementLandingPage")}
+              onPress={() => this.props.navigation.navigate("RequestVideo",
+              { uid: instance.uid,
+                timestamp: instance.timestamp,
+
+              })}
             >
                <Text style={{fontSize: 16}}> {String(new Date(instance.timestamp*1000))} </Text>
             </TouchableOpacity>
-      
-            
           );
         })
       }

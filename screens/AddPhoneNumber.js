@@ -14,11 +14,26 @@ import {
   TextInput,
 } from 'react-native';
 
+
 export default class AddPhoneNumber extends Component {
     constructor(props) {
     super(props);
     this.state = {phoneNumber: ''};
     }
+
+  sendPhoneNumber(){
+    fetch(("https://8lvhhrkwg6.execute-api.us-east-2.amazonaws.com/default/addPhoneNumber?phoneNumber="+ String(this.state.phoneNumber)), {
+       method: 'POST'
+    })
+    .then((response) => response.json())
+    .then((responseJson) => {
+      console.log(responseJson)
+    })
+    .catch((error) => {
+       console.error(error);
+    });
+  }
+
   render() {
     return (
     <View style={styles.container}>
@@ -49,18 +64,18 @@ export default class AddPhoneNumber extends Component {
           onChangeText={(phoneNumber) => this.setState({phoneNumber})}
           value={this.state.phoneNumber}
         />
-        
+
       </View>
 
       <View style={styles.button_container}>
           <TouchableOpacity
           style={styles.button}
-          onPress={() => this.props.navigation.navigate("CivilianLandingPage")}
+          onPress={() => this.sendPhoneNumber()}
           >
           <Text style={{fontSize: 16}}> Submit </Text>
           </TouchableOpacity>
 
-          
+
       </View>
 
       </ScrollView>
